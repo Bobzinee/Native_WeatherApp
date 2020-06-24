@@ -1,19 +1,54 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import {
+  StyleSheet,
+  Text,
+  Platform,
+  TextInput,
+  KeyboardAvoidingView,
+} from "react-native";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
+    <KeyboardAvoidingView style={styles.container}>
+      <Text style={[styles.largeText, styles.textStyle]}>San Francisco</Text>
+      <Text style={[styles.smallText, styles.textStyle]}>Light Cloud</Text>
+      <Text style={[styles.largeText, styles.textStyle]}>24°</Text>
+      <TextInput
+        placeholder="Search any city"
+        placeholderTextColor="white"
+        autoCorrect={false}
+        style={styles.textInput}
+        clearButtonMode="always"
+      />
+    </KeyboardAvoidingView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  textStyle: {
+    textAlign: "center",
+    fontFamily: Platform.OS === "ios" ? "AvenirNext-Regular" : "Roboto",
+  },
+  largeText: {
+    fontSize: 44,
+  },
+  smallText: {
+    fontSize: 18,
+  },
+  textInput: {
+    backgroundColor: "#666",
+    color: "white",
+    height: 40,
+    width: 300,
+    marginTop: 20,
+    marginHorizontal: 20,
+    paddingHorizontal: 10,
+    alignSelf: "center",
   },
 });
